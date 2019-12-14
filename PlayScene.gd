@@ -4,6 +4,8 @@ var currentScene: Spatial
 onready var cameraLook: Position3D = $"CameraLook"
 
 func _enter_tree():
+	($"/root" as Viewport).size = ($"/root" as Viewport).size / 2
+
 	currentScene = (preload("res://map/city.tscn") as PackedScene).instance()
 	call_deferred("add_child", currentScene)
 
@@ -21,4 +23,4 @@ func spawnPlayer():
 	cameraRemote.name = "CameraRemote"
 	cameraRemote.remote_path = cameraLook.get_path()
 	cameraRemote.update_rotation = false
-	player.add_child(cameraRemote)
+	player.get_node("Character").add_child(cameraRemote)

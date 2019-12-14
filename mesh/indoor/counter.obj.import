@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/counter.obj-b01f079d8c08b4c487eb9adbe2034d3c.mesh"
+
+[deps]
+
+files=[ "res://.import/counter.obj-b01f079d8c08b4c487eb9adbe2034d3c.mesh" ]
+
+source_file="res://mesh/indoor/counter.obj"
+dest_files=[ "res://.import/counter.obj-b01f079d8c08b4c487eb9adbe2034d3c.mesh", "res://.import/counter.obj-b01f079d8c08b4c487eb9adbe2034d3c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

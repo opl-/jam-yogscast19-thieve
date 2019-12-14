@@ -1,24 +1,26 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://mesh/wall-gray/straight.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://mesh/wall-gray/corner.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://mesh/wall-gray/inner-corner.obj" type="ArrayMesh" id=3]
-[ext_resource path="res://mesh/wall-gray/door.obj" type="ArrayMesh" id=4]
-[ext_resource path="res://mesh/street/edge-straight.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://mesh/street/edge-corner.obj" type="ArrayMesh" id=6]
-[ext_resource path="res://mesh/street/edge-straight-drain.obj" type="ArrayMesh" id=7]
-[ext_resource path="res://mesh/street/middle-empty.obj" type="ArrayMesh" id=8]
-[ext_resource path="res://mesh/street/middle-line.obj" type="ArrayMesh" id=9]
-[ext_resource path="res://mesh/street/edge-corner-inner.obj" type="ArrayMesh" id=10]
-[ext_resource path="res://mesh/street/sidewalk.obj" type="ArrayMesh" id=11]
-[ext_resource path="res://mesh/street/lamp.obj" type="ArrayMesh" id=12]
-[ext_resource path="res://mesh/grass/edge-straight.obj" type="ArrayMesh" id=13]
-[ext_resource path="res://mesh/grass/edge-corner.obj" type="ArrayMesh" id=14]
-[ext_resource path="res://mesh/grass/path.obj" type="ArrayMesh" id=15]
-[ext_resource path="res://mesh/grass/edge-corner-inner.obj" type="ArrayMesh" id=16]
-[ext_resource path="res://mesh/grass/grass.obj" type="ArrayMesh" id=17]
-[ext_resource path="res://mesh/foliage/tree1.obj" type="ArrayMesh" id=18]
-[ext_resource path="res://mesh/foliage/tree2.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://object/palette.material" type="Material" id=2]
+[ext_resource path="res://mesh/wall-gray/corner.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://mesh/wall-gray/inner-corner.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://mesh/wall-gray/door.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://mesh/indoor/counter.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://mesh/street/edge-straight.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://mesh/street/edge-corner.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://mesh/street/edge-straight-drain.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://mesh/street/middle-empty.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://mesh/street/middle-line.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://mesh/street/edge-corner-inner.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://mesh/street/sidewalk.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://mesh/street/lamp.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://mesh/grass/edge-straight.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://mesh/grass/edge-corner.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://mesh/grass/path.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://mesh/grass/edge-corner-inner.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://mesh/grass/grass.obj" type="ArrayMesh" id=19]
+[ext_resource path="res://mesh/foliage/tree1.obj" type="ArrayMesh" id=20]
+[ext_resource path="res://mesh/foliage/tree2.obj" type="ArrayMesh" id=21]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.05, 0.5, 0.5 )
@@ -28,6 +30,12 @@ extents = Vector3( 0.05, 0.5, 0.05 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.05, 0.5, 0.1 )
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 0.147417, 0.169184, 0.5 )
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 0.186626, 0.0229483, 0.5 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.5, 0.05, 0.5 )
@@ -74,7 +82,7 @@ extents = Vector3( 0.156372, 0.110633, 0.109904 )
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="wall-straight"]
 
@@ -85,8 +93,8 @@ shape = SubResource( 1 )
 [node name="wall-corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 1.5 )
-mesh = ExtResource( 2 )
-material/0 = null
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="wall-corner"]
 
@@ -101,8 +109,8 @@ shape = SubResource( 1 )
 [node name="wall-inner-corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 2.5 )
-mesh = ExtResource( 3 )
-material/0 = null
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="wall-inner-corner"]
 
@@ -113,8 +121,8 @@ shape = SubResource( 2 )
 [node name="wall-door" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 3.5 )
-mesh = ExtResource( 4 )
-material/0 = null
+mesh = ExtResource( 5 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="wall-door"]
 
@@ -126,11 +134,27 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.4 )
 shape = SubResource( 3 )
 
+[node name="counter" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 3.5 )
+mesh = ExtResource( 6 )
+material/0 = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="counter"]
+
+[node name="CollisionShape" type="CollisionShape" parent="counter/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.333184, 0 )
+shape = SubResource( 17 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="counter/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.185934, 0 )
+shape = SubResource( 18 )
+
 [node name="street-edge-straight" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 0.5 )
-mesh = ExtResource( 5 )
-material/0 = null
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-edge-straight"]
 
@@ -141,8 +165,8 @@ shape = SubResource( 4 )
 [node name="street-edge-corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 1.5 )
-mesh = ExtResource( 6 )
-material/0 = null
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-edge-corner"]
 
@@ -153,8 +177,8 @@ shape = SubResource( 4 )
 [node name="street-edge-straight-drain" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 2.5 )
-mesh = ExtResource( 7 )
-material/0 = null
+mesh = ExtResource( 9 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-edge-straight-drain"]
 
@@ -165,8 +189,8 @@ shape = SubResource( 4 )
 [node name="street-middle-empty" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 4.5 )
-mesh = ExtResource( 8 )
-material/0 = null
+mesh = ExtResource( 10 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-middle-empty"]
 
@@ -177,8 +201,8 @@ shape = SubResource( 4 )
 [node name="street-middle-line" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 3.5 )
-mesh = ExtResource( 9 )
-material/0 = null
+mesh = ExtResource( 11 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-middle-line"]
 
@@ -189,8 +213,8 @@ shape = SubResource( 4 )
 [node name="street-edge-corner-inner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 5.5 )
-mesh = ExtResource( 10 )
-material/0 = null
+mesh = ExtResource( 12 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-edge-corner-inner"]
 
@@ -201,8 +225,8 @@ shape = SubResource( 4 )
 [node name="street-sidewalk" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 6.5 )
-mesh = ExtResource( 11 )
-material/0 = null
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-sidewalk"]
 
@@ -213,8 +237,8 @@ shape = SubResource( 4 )
 [node name="street-lamp" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 7.5 )
-mesh = ExtResource( 12 )
-material/0 = null
+mesh = ExtResource( 14 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="street-lamp"]
 
@@ -229,7 +253,7 @@ shape = SubResource( 6 )
 [node name="grass-edge-straight" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 0.5 )
-mesh = ExtResource( 13 )
+mesh = ExtResource( 15 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grass-edge-straight"]
@@ -245,7 +269,7 @@ shape = SubResource( 7 )
 [node name="grass-edge-corner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 1.5 )
-mesh = ExtResource( 14 )
+mesh = ExtResource( 16 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grass-edge-corner"]
@@ -265,7 +289,7 @@ shape = SubResource( 7 )
 [node name="grass-middle" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49942, 0.5, 4.50251 )
-mesh = ExtResource( 15 )
+mesh = ExtResource( 17 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grass-middle"]
@@ -277,7 +301,7 @@ shape = SubResource( 4 )
 [node name="grass-edge-corner-inner" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 5.5 )
-mesh = ExtResource( 16 )
+mesh = ExtResource( 18 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grass-edge-corner-inner"]
@@ -293,7 +317,7 @@ shape = SubResource( 8 )
 [node name="grass-sidewalk" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 6.5 )
-mesh = ExtResource( 17 )
+mesh = ExtResource( 19 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="grass-sidewalk"]
@@ -305,8 +329,8 @@ shape = SubResource( 4 )
 [node name="tree1" type="MeshInstance" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 0.5 )
-mesh = ExtResource( 18 )
-material/0 = null
+mesh = ExtResource( 20 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="tree1"]
 
@@ -326,9 +350,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217453, 0.825113, 0.15803 )
 shape = SubResource( 12 )
 
 [node name="tree2" type="MeshInstance" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 2.5 )
-mesh = ExtResource( 19 )
-material/0 = null
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="tree2"]
 

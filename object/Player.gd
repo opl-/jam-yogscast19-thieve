@@ -1,9 +1,4 @@
-extends RigidBody
-
-onready var mesh = $"Mesh"
-
-func _ready():
-	pass
+extends Character
 
 func get_input_dir():
 	var dir = Vector3(0, 0, 0)
@@ -26,7 +21,4 @@ func get_input_dir():
 func _physics_process(delta):
 	apply_central_impulse(get_input_dir() * delta * 100)
 
-	if self.linear_velocity.length() > 0.1:
-		var lookAt = self.linear_velocity
-		lookAt.y = 0
-		mesh.look_at(mesh.global_transform.origin + lookAt.normalized(), Vector3(0, 1, 0))
+	._physics_process(delta)

@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/bed.obj-fee325083e0698dad6e935acc0991a64.mesh"
+
+[deps]
+
+files=[ "res://.import/bed.obj-fee325083e0698dad6e935acc0991a64.mesh" ]
+
+source_file="res://mesh/deco/bed.obj"
+dest_files=[ "res://.import/bed.obj-fee325083e0698dad6e935acc0991a64.mesh", "res://.import/bed.obj-fee325083e0698dad6e935acc0991a64.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

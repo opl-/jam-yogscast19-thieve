@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "RigidBody",
+"class": "Character",
+"language": "GDScript",
+"path": "res://object/Character.gd"
+} ]
 _global_script_class_icons={
-
+"Character": ""
 }
 
 [application]
@@ -56,5 +61,4 @@ game_left={
 
 [rendering]
 
-quality/filters/msaa=2
 environment/default_environment="res://default_env.tres"

@@ -15,4 +15,4 @@ dest_files=[ "res://.import/bench.obj-eb4d4f0b802aa18dc91536c7bbbd31e4.mesh", "r
 
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
-optimize_mesh=true
+optimize_mesh=false
