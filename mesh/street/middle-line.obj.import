@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/middle-line.obj-76de2ee4da9263a0ff30fe1a636c2bcc.mesh"
+
+[deps]
+
+files=[ "res://.import/middle-line.obj-76de2ee4da9263a0ff30fe1a636c2bcc.mesh" ]
+
+source_file="res://mesh/street/middle-line.obj"
+dest_files=[ "res://.import/middle-line.obj-76de2ee4da9263a0ff30fe1a636c2bcc.mesh", "res://.import/middle-line.obj-76de2ee4da9263a0ff30fe1a636c2bcc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/corner.obj-0d3f6d3b027a6889537c6e206166bbee.mesh"
+
+[deps]
+
+files=[ "res://.import/corner.obj-0d3f6d3b027a6889537c6e206166bbee.mesh" ]
+
+source_file="res://mesh/wall-gray/corner.obj"
+dest_files=[ "res://.import/corner.obj-0d3f6d3b027a6889537c6e206166bbee.mesh", "res://.import/corner.obj-0d3f6d3b027a6889537c6e206166bbee.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

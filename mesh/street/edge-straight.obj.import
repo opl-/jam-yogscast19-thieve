@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/edge-straight.obj-338dfa108fc6f3a44d10c938add1b06a.mesh"
+
+[deps]
+
+files=[ "res://.import/edge-straight.obj-338dfa108fc6f3a44d10c938add1b06a.mesh" ]
+
+source_file="res://mesh/street/edge-straight.obj"
+dest_files=[ "res://.import/edge-straight.obj-338dfa108fc6f3a44d10c938add1b06a.mesh", "res://.import/edge-straight.obj-338dfa108fc6f3a44d10c938add1b06a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

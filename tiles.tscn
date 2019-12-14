@@ -1,0 +1,289 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://mesh/wall-gray/straight.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://mesh/wall-gray/corner.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://mesh/wall-gray/inner-corner.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://mesh/wall-gray/door.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://mesh/street/edge-straight.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://mesh/street/edge-corner.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://mesh/street/edge-straight-drain.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://mesh/street/middle-empty.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://mesh/street/middle-line.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://mesh/street/edge-corner-inner.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://mesh/street/sidewalk.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://mesh/grass/edge-straight.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://mesh/grass/edge-corner.obj" type="ArrayMesh" id=13]
+[ext_resource path="res://mesh/grass/path.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://mesh/grass/edge-corner-inner.obj" type="ArrayMesh" id=15]
+[ext_resource path="res://mesh/grass/grass.obj" type="ArrayMesh" id=16]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.05, 0.5, 0.5 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.05, 0.5, 0.05 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.05, 0.5, 0.1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.5, 0.05, 0.5 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.5, 0.05, 0.05 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.05, 0.05, 0.05 )
+
+[node name="tiles" type="Spatial"]
+
+[node name="wall-straight" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="wall-straight"]
+
+[node name="CollisionShape" type="CollisionShape" parent="wall-straight/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="wall-corner" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 1.5 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="wall-corner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="wall-corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="wall-corner/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.45 )
+shape = SubResource( 1 )
+
+[node name="wall-inner-corner" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 2.5 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="wall-inner-corner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="wall-inner-corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.45 )
+shape = SubResource( 2 )
+
+[node name="wall-door" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 3.5 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="wall-door"]
+
+[node name="CollisionShape" type="CollisionShape" parent="wall-door/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.4 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="wall-door/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.4 )
+shape = SubResource( 3 )
+
+[node name="street-edge-straight" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 0.5 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="street-edge-straight"]
+
+[node name="CollisionShape" type="CollisionShape" parent="street-edge-straight/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="street-edge-straight/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.45 )
+shape = SubResource( 5 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="street-edge-straight/StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.4, -0.4 )
+polygon = PoolVector2Array( 0, 0, 0.3, 0, 0, 0.1 )
+
+[node name="street-edge-corner" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 1.5 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="street-edge-corner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="street-edge-corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="street-edge-corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.45 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="street-edge-corner/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.45, 0.45, 0 )
+shape = SubResource( 5 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="street-edge-corner/StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.4, -0.4 )
+polygon = PoolVector2Array( 0, 0, 0.3, 0, 0, 0.1 )
+
+[node name="CollisionPolygon3" type="CollisionPolygon" parent="street-edge-corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.4, 0 )
+polygon = PoolVector2Array( 0, 0, 0.3, 0, 0, 0.1 )
+
+[node name="street-edge-straight-drain" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 2.5 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="street-edge-straight-drain"]
+
+[node name="CollisionShape" type="CollisionShape" parent="street-edge-straight-drain/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="street-edge-straight-drain/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.45 )
+shape = SubResource( 5 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="street-edge-straight-drain/StaticBody"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.4, -0.4 )
+polygon = PoolVector2Array( 0, 0, 0.3, 0, 0, 0.1 )
+
+[node name="street-middle-empty" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 4.5 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="street-middle-empty"]
+
+[node name="CollisionShape" type="CollisionShape" parent="street-middle-empty/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="street-middle-line" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 3.5 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="street-middle-line"]
+
+[node name="CollisionShape" type="CollisionShape" parent="street-middle-line/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="street-edge-corner-inner" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 5.5 )
+mesh = ExtResource( 10 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="street-edge-corner-inner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="street-edge-corner-inner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="street-edge-corner-inner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.45, -0.45 )
+shape = SubResource( 6 )
+
+[node name="street-sidewalk" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 6.5 )
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="street-sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="street-sidewalk/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+shape = SubResource( 4 )
+
+[node name="grass-edge-straight" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 0.5 )
+mesh = ExtResource( 12 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="grass-edge-straight"]
+
+[node name="CollisionShape" type="CollisionShape" parent="grass-edge-straight/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="grass-edge-straight/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.45 )
+shape = SubResource( 5 )
+
+[node name="grass-edge-corner" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 1.5 )
+mesh = ExtResource( 13 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="grass-edge-corner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="grass-edge-corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="grass-edge-corner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, -0.45 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="grass-edge-corner/StaticBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.45, 0.45, 0 )
+shape = SubResource( 5 )
+
+[node name="grass-middle" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49942, 0.5, 4.50251 )
+mesh = ExtResource( 14 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="grass-middle"]
+
+[node name="CollisionShape" type="CollisionShape" parent="grass-middle/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="grass-edge-corner-inner" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 5.5 )
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="grass-edge-corner-inner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="grass-edge-corner-inner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="grass-edge-corner-inner/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0.45, -0.45 )
+shape = SubResource( 6 )
+
+[node name="grass-sidewalk" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 6.5 )
+mesh = ExtResource( 16 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="grass-sidewalk"]
+
+[node name="CollisionShape" type="CollisionShape" parent="grass-sidewalk/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+shape = SubResource( 4 )

@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/edge-corner.obj-0418d5a6f8a68cbdfeebca77849f382d.mesh"
+
+[deps]
+
+files=[ "res://.import/edge-corner.obj-0418d5a6f8a68cbdfeebca77849f382d.mesh" ]
+
+source_file="res://mesh/street/edge-corner.obj"
+dest_files=[ "res://.import/edge-corner.obj-0418d5a6f8a68cbdfeebca77849f382d.mesh", "res://.import/edge-corner.obj-0418d5a6f8a68cbdfeebca77849f382d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

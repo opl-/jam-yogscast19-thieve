@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sidewalk.obj-45a7306c60a9a8dba3ed8ba58f1d2f3b.mesh"
+
+[deps]
+
+files=[ "res://.import/sidewalk.obj-45a7306c60a9a8dba3ed8ba58f1d2f3b.mesh" ]
+
+source_file="res://mesh/street/sidewalk.obj"
+dest_files=[ "res://.import/sidewalk.obj-45a7306c60a9a8dba3ed8ba58f1d2f3b.mesh", "res://.import/sidewalk.obj-45a7306c60a9a8dba3ed8ba58f1d2f3b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
