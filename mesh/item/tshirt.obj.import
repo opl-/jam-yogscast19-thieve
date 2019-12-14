@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tshirt.obj-5c202007601cb769e5b7ed1b8899205c.mesh"
+
+[deps]
+
+files=[ "res://.import/tshirt.obj-5c202007601cb769e5b7ed1b8899205c.mesh" ]
+
+source_file="res://mesh/item/tshirt.obj"
+dest_files=[ "res://.import/tshirt.obj-5c202007601cb769e5b7ed1b8899205c.mesh", "res://.import/tshirt.obj-5c202007601cb769e5b7ed1b8899205c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

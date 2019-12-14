@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/lamp.obj-11c694dac569e138c6f3d244b2f9de65.mesh"
+
+[deps]
+
+files=[ "res://.import/lamp.obj-11c694dac569e138c6f3d244b2f9de65.mesh" ]
+
+source_file="res://mesh/street/lamp.obj"
+dest_files=[ "res://.import/lamp.obj-11c694dac569e138c6f3d244b2f9de65.mesh", "res://.import/lamp.obj-11c694dac569e138c6f3d244b2f9de65.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

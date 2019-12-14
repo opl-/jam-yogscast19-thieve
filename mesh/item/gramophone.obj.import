@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/gramophone.obj-4b9f06895381b07b132c50af522a71dc.mesh"
+
+[deps]
+
+files=[ "res://.import/gramophone.obj-4b9f06895381b07b132c50af522a71dc.mesh" ]
+
+source_file="res://mesh/item/gramophone.obj"
+dest_files=[ "res://.import/gramophone.obj-4b9f06895381b07b132c50af522a71dc.mesh", "res://.import/gramophone.obj-4b9f06895381b07b132c50af522a71dc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://mesh/item/pizza.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -0.06, -0.05, -0.16, -0.06, 0.05, -0.16, -0.06, -0.05, 0.16, -0.06, 0.05, 0.16, 0.4, -0.05, 0, 0.4, 0.05, 0 )
+
+[node name="Pizza" type="RigidBody"]
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )

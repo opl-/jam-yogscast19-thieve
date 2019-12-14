@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/edge-straight-drain.obj-58710cd29c5cb17ff8038dc3f7a6dc51.mesh"
+
+[deps]
+
+files=[ "res://.import/edge-straight-drain.obj-58710cd29c5cb17ff8038dc3f7a6dc51.mesh" ]
+
+source_file="res://mesh/street/edge-straight-drain.obj"
+dest_files=[ "res://.import/edge-straight-drain.obj-58710cd29c5cb17ff8038dc3f7a6dc51.mesh", "res://.import/edge-straight-drain.obj-58710cd29c5cb17ff8038dc3f7a6dc51.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

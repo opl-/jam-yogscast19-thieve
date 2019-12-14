@@ -6,11 +6,11 @@
 friction = 0.1
 
 [sub_resource type="CapsuleShape" id=2]
-radius = 0.25
+radius = 0.17
 height = 0.3
 
 [sub_resource type="CapsuleMesh" id=1]
-radius = 0.25
+radius = 0.17
 mid_height = 0.001
 radial_segments = 8
 rings = 4
@@ -37,6 +37,6 @@ mesh = SubResource( 1 )
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Mesh"]
 transform = Transform( -1, -8.74228e-08, 3.82137e-15, -7.61941e-09, 0.0871559, 0.996195, -8.70901e-08, 0.996195, -0.0871559, 0, 0.0418933, -0.800126 )
-radius = 0.18273
+radius = 0.17
 height = 0.494793
 cone = true
