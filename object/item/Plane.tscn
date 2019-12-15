@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://object/item/Item.gd" type="Script" id=1]
+[ext_resource path="res://mesh/item/plane.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.309607, 0.0466358, 0.0480687 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0372384, 0.0139335, 0.246942 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.0234557, 0.0482258, 0.0146247 )
+
+[node name="Plane" type="RigidBody"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 1 )
+itemName = "Plane"
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105978, 0.000409618, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0733724, 0.000502422, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 0.932657, 0.360764, 0, -0.360764, 0.932657, 0, 0, 0, 1, 0.298038, 0.0756818, 0 )
+shape = SubResource( 3 )

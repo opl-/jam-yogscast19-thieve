@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://object/item/Item.gd" type="Script" id=1]
+[ext_resource path="res://mesh/item/tophat.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://object/palette.material" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.06, 0.071, 0.06 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.097, 0.006, 0.097 )
+
+[node name="TopHat" type="RigidBody"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 1 )
+itemName = "TopHat"
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0817954, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0057929, 0 )
+shape = SubResource( 2 )

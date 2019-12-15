@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/screwdriver.obj-3cd4be1fed75829840a94ad38583faad.mesh"
+
+[deps]
+
+files=[ "res://.import/screwdriver.obj-3cd4be1fed75829840a94ad38583faad.mesh" ]
+
+source_file="res://mesh/item/screwdriver.obj"
+dest_files=[ "res://.import/screwdriver.obj-3cd4be1fed75829840a94ad38583faad.mesh", "res://.import/screwdriver.obj-3cd4be1fed75829840a94ad38583faad.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

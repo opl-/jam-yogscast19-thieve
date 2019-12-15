@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://object/item/Item.gd" type="Script" id=1]
+[ext_resource path="res://mesh/item/bottle.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://object/palette.material" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.028, 0.082, 0.028 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.009, 0.039, 0.009 )
+
+[node name="Bottle" type="RigidBody"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 1 )
+itemName = "Bottle"
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0543857, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169806, 0 )
+shape = SubResource( 2 )

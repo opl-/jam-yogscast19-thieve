@@ -1,14 +1,16 @@
 extends Character
+class_name Player
 
 onready var itemDetector: Area = $"Rig/ItemDetector"
-onready var itemHold: Position3D = $"Rig/Hold"
 onready var throwStrengthIndicator: Position3D = $"Rig/ThrowIndicator"
 
 var throwStrength: float = 0
 var highlightedItem: Item
 
 func _ready():
+	#warning-ignore:return_value_discarded
 	itemDetector.connect("body_entered", self, "handleItemDetected")
+	#warning-ignore:return_value_discarded
 	itemDetector.connect("body_exited", self, "handleItemExit")
 
 func get_input_dir():
@@ -30,16 +32,8 @@ func _physics_process(delta):
 		elif Input.is_action_just_pressed("game_hold"):
 			throwStrength = 0.1
 		elif throwStrength > 0:
-			var heldItem = itemHold.get_child(0) as Spatial
-
-			var dir = linear_velocity.normalized()
-
-			Util.reparent(heldItem, $"../..")
-			heldItem.global_transform.origin = itemHold.global_transform.origin + dir * 0.3
-			heldItem.collision_mask |= 1
-
-			dir.y += 0.2
-			heldItem.apply_central_impulse(dir.normalized() * throwStrength * 20)
+			#warning-ignore:return_value_discarded
+			dropHeldItem(throwStrength)
 
 			throwStrength = 0
 
@@ -49,35 +43,32 @@ func _physics_process(delta):
 		throwStrengthIndicator.visible = throwStrength > 0
 	else:
 		if Input.is_action_just_pressed("game_hold") and highlightedItem:
-			highlightedItem.global_transform.origin = Vector3(0, 0, 0)
-			highlightedItem.collision_mask &= ~1
-			Util.reparent(highlightedItem, itemHold)
+			takeItem(highlightedItem)
 			unhighlightItem(highlightedItem)
 
-func isValidItem(node: Node):
-	return node and node is Item and node.is_in_group("item")
-
 func handleItemDetected(arg: RigidBody):
-	if not isValidItem(arg) or itemHold.get_child_count() > 0:
-		return
+	if Util.isValidItem(arg) and itemHold.get_child_count() == 0:
+		highlightItem(arg)
+	elif arg is NPC and itemHold.get_child_count() > 0:
+		var npc := arg as NPC
 
-	highlightItem(arg)
+		if npc.wants == (itemHold.get_child(0) as Item).itemName:
+			var droppedItem = dropHeldItem()
+			npc.makeHappy(droppedItem)
 
 func handleItemExit(arg: RigidBody):
-	if not isValidItem(arg):
-		return
+	if Util.isValidItem(arg):
+		unhighlightItem(arg)
 
-	unhighlightItem(arg)
-
-	call_deferred("tryHighlight")
+		call_deferred("tryHighlight")
 
 func tryHighlight():
 	var overlaps := itemDetector.get_overlapping_bodies()
-	if overlaps.size() > 0 and isValidItem(overlaps[0]):
+	if overlaps.size() > 0 and Util.isValidItem(overlaps[0]):
 		handleItemDetected(overlaps[0])
 
 func highlightItem(item: Item):
-	if not isValidItem(item):
+	if not Util.isValidItem(item) or item.get_parent().name == "Hold":
 		return
 
 	var mesh := item.get_node("Mesh") as MeshInstance
@@ -92,7 +83,7 @@ func highlightItem(item: Item):
 	highlightedItem = item
 
 func unhighlightItem(item: Item):
-	if not isValidItem(item):
+	if not Util.isValidItem(item):
 		return
 
 	var mesh := item.get_node("Mesh") as MeshInstance

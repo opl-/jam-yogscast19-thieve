@@ -8,12 +8,15 @@ var viewportResized = false
 var viewport: Viewport
 
 func _ready():
+	#warning-ignore:return_value_discarded
 	$"quit/ConfirmationDialog".connect("confirmed", self, "quit")
 
 	viewport = $"/root"
+	#warning-ignore:return_value_discarded
 	viewport.connect("size_changed", self, "handle_resize")
 	handle_resize()
 
+	#warning-ignore:return_value_discarded
 	$"/root".connect("ready", self, "initGlobal")
 
 func initGlobal():
@@ -49,6 +52,7 @@ func spawnPlayer():
 func spawnNPCs():
 	var paths = currentScene.get_node("Paths")
 
+	#warning-ignore:unused_variable
 	for i in range(30):
 		var path: Curve3D = (paths.get_child(rng.randi_range(0, paths.get_child_count() - 1)) as Path).curve
 		var pos := path.interpolate(rng.randi_range(0, path.get_point_count() - 1), rng.randf())
@@ -57,6 +61,7 @@ func spawnNPCs():
 		add_child(npc)
 		npc.global_transform.origin = pos
 
+#warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("ui_exit"):
 		$"quit/ConfirmationDialog".popup_centered()

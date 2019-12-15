@@ -24,7 +24,6 @@ size = Vector3( 0.1, 0.01, 0.5 )
 [node name="Player" type="Spatial"]
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
-collision_layer = 2
 collision_mask = 7
 physics_material_override = SubResource( 1 )
 can_sleep = false
@@ -32,7 +31,7 @@ script = ExtResource( 2 )
 
 [node name="ItemDetector" type="Area" parent="Character/Rig" index="2"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape" type="CollisionShape" parent="Character/Rig/ItemDetector"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37919, -0.28378 )

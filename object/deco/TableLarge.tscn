@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://mesh/deco/table-large.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://object/palette.material" type="Material" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.27923, 0.0112711, 0.521458 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.019, 0.141724, 0.0184058 )
+
+[node name="TableLarge" type="RigidBody"]
+mass = 20.0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.142189, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223329, -0.00923759, 0.467976 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223867, -0.00923759, 0.467976 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.223329, -0.00923759, -0.468141 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223867, -0.00923759, -0.468141 )
+shape = SubResource( 2 )

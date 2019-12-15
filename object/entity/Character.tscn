@@ -9,6 +9,7 @@ radius = 0.0870581
 height = 0.426169
 
 [node name="Character" type="RigidBody"]
+collision_layer = 2
 mass = 10.0
 axis_lock_angular_x = true
 axis_lock_angular_z = true

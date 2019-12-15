@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/painting.obj-47e45c1f9fc2e7ab8b427d501afa7f7f.mesh"
+
+[deps]
+
+files=[ "res://.import/painting.obj-47e45c1f9fc2e7ab8b427d501afa7f7f.mesh" ]
+
+source_file="res://mesh/item/painting.obj"
+dest_files=[ "res://.import/painting.obj-47e45c1f9fc2e7ab8b427d501afa7f7f.mesh", "res://.import/painting.obj-47e45c1f9fc2e7ab8b427d501afa7f7f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

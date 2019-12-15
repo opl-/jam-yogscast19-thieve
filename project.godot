@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://object/item/Item.gd"
 }, {
+"base": "Character",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://object/entity/NPC.gd"
+}, {
+"base": "Character",
+"class": "Player",
+"language": "GDScript",
+"path": "res://object/entity/Player.gd"
+}, {
 "base": "Reference",
 "class": "Util",
 "language": "GDScript",
@@ -27,6 +37,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Character": "",
 "Item": "",
+"NPC": "",
+"Player": "",
 "Util": ""
 }
 
