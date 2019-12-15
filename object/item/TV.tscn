@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://mesh/item/tv.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://object/item/Item.gd" type="Script" id=1]
+[ext_resource path="res://mesh/item/tv.obj" type="ArrayMesh" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.239056, 0.195004, 0.0315077 )
@@ -12,9 +13,14 @@ extents = Vector3( 0.157117, 0.100317, 0.135083 )
 extents = Vector3( 0.131052, 0.0350698, 0.139744 )
 
 [node name="TV" type="RigidBody"]
+collision_layer = 4
+collision_mask = 5
+mass = 8.0
+script = ExtResource( 1 )
+itemName = "TV"
 
 [node name="Mesh" type="MeshInstance" parent="."]
-mesh = ExtResource( 1 )
+mesh = ExtResource( 2 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

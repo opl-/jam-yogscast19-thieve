@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://object/entity/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://object/entity/NPC.gd" type="Script" id=2]
+
+[node name="NPC" type="Spatial"]
+
+[node name="Character" parent="." instance=ExtResource( 1 )]
+editor/display_folded = false
+script = ExtResource( 2 )
+
+[node name="RayCast" type="RayCast" parent="Character"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340446, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -0.5 )

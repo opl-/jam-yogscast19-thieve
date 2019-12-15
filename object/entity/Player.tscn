@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://object/entity/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://object/entity/Player.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.1
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.310186, 0.381253, 0.272621 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+flags_no_depth_test = true
+flags_disable_ambient_light = true
+params_diffuse_mode = 4
+params_specular_mode = 4
+albedo_color = Color( 0.607843, 0.737255, 0.0588235, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+size = Vector3( 0.1, 0.01, 0.5 )
+
+[node name="Player" type="Spatial"]
+
+[node name="Character" parent="." instance=ExtResource( 1 )]
+editor/display_folded = false
+collision_layer = 2
+collision_mask = 7
+physics_material_override = SubResource( 1 )
+can_sleep = false
+script = ExtResource( 2 )
+
+[node name="Hold" type="Position3D" parent="Character/Rig" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334868, -0.264519 )
+
+[node name="ItemDetector" type="Area" parent="Character/Rig" index="3"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Character/Rig/ItemDetector"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37919, -0.28378 )
+shape = SubResource( 2 )
+
+[node name="ThrowIndicator" type="Position3D" parent="Character/Rig" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633057, -0.128088 )
+visible = false
+
+[node name="Mesh" type="CSGMesh" parent="Character/Rig/ThrowIndicator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25 )
+mesh = SubResource( 4 )
+
+[editable path="Character"]
