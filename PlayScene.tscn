@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PlayScene.gd" type="Script" id=1]
+[ext_resource path="res://mesh/texture/controls.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 34
+atlas = ExtResource( 2 )
+region = Rect2( 0, 8, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 34
+atlas = ExtResource( 2 )
+region = Rect2( 8, 8, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 34
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 34
+atlas = ExtResource( 2 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 34
+atlas = ExtResource( 2 )
+region = Rect2( 0, 16, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 34
+atlas = ExtResource( 2 )
+region = Rect2( 8, 16, 8, 8 )
 
 [node name="PlayScene" type="Spatial"]
 script = ExtResource( 1 )
@@ -18,3 +49,106 @@ anchor_bottom = 1.0
 popup_exclusive = true
 window_title = ""
 dialog_text = "Do you really want to quit?"
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.773804
+margin_right = -0.773804
+
+[node name="Hints" type="VBoxContainer" parent="UI"]
+anchor_top = 0.5
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_right = 200.0
+margin_bottom = -8.0
+grow_vertical = 0
+rect_min_size = Vector2( 200, 0 )
+alignment = 2
+
+[node name="Move" type="HBoxContainer" parent="UI/Hints"]
+margin_top = 476.0
+margin_right = 200.0
+margin_bottom = 492.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Hints/Move"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = SubResource( 3 )
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Hints/Move"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = SubResource( 4 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="UI/Hints/Move"]
+margin_left = 40.0
+margin_top = 1.0
+margin_right = 78.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.607843, 0.737255, 0.0588235, 1 )
+text = "MOVE"
+valign = 1
+
+[node name="Hold" type="HBoxContainer" parent="UI/Hints"]
+margin_top = 496.0
+margin_right = 200.0
+margin_bottom = 512.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Hints/Hold"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = SubResource( 2 )
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Hints/Hold"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = SubResource( 1 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="UI/Hints/Hold"]
+margin_left = 40.0
+margin_top = 1.0
+margin_right = 132.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.607843, 0.737255, 0.0588235, 1 )
+text = "HOLD/THROW"
+valign = 1
+
+[node name="Quit" type="HBoxContainer" parent="UI/Hints"]
+margin_top = 516.0
+margin_right = 200.0
+margin_bottom = 532.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Hints/Quit"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = SubResource( 5 )
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Hints/Quit"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = SubResource( 6 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="UI/Hints/Quit"]
+margin_left = 40.0
+margin_top = 1.0
+margin_right = 73.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.607843, 0.737255, 0.0588235, 1 )
+text = "QUIT"
+valign = 1
