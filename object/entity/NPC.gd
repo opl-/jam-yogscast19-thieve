@@ -73,13 +73,16 @@ func _physics_process(delta):
 	moveDuration -= delta
 	if moveDuration <= 0:
 		moveDuration = rng.randf_range(0.5, 10) + rng.randf_range(0.5, 3)
-		moveDir = Vector3(rng.randf() - 0.5, 0, rng.randf() - 0.5).normalized()
+
+		if rng.randf() < 0.4:
+			moveDir = Vector3(0, 0, 0)
+		else:
+			moveDir = Vector3(rng.randf() - 0.5, 0, rng.randf() - 0.5).normalized()
 
 	apply_central_impulse(delta * 80 * moveDir)
 
 func handleItemEnter(arg: Item):
 	if Util.isValidItem(arg) and arg.itemName == wants and arg.get_parent().name != "Hold":
-
 		heartParticles.amount = 2
 		heartParticles.emitting = true
 		heartParticles.one_shot = true
