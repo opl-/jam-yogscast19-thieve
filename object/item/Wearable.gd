@@ -1,5 +1,10 @@
 extends "res://object/item/Item.gd"
 
+func _ready():
+	._ready()
+
+	add_to_group("usable")
+
 func useItem(character: RigidBody):
 	var hatHold: Position3D = character.get_node_or_null("Rig/HatHold")
 

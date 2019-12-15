@@ -2,6 +2,7 @@ extends Character
 class_name Player
 
 signal scoreChanged
+signal updateHint
 
 onready var itemDetector: Area = $"Rig/ItemDetector"
 onready var throwStrengthIndicator: Position3D = $"Rig/ThrowIndicator"
@@ -69,14 +70,18 @@ func handleItemDetected(arg: RigidBody):
 		var npc := arg as NPC
 
 		if npc.wants == (itemHold.get_child(0) as Item).itemName:
-			# TODO: show hint
-			pass
+			emit_signal("updateHint", "Gift", true)
 
 func handleItemExit(arg: RigidBody):
 	if Util.isValidItem(arg):
 		unhighlightItem(arg)
 
 		call_deferred("tryHighlight")
+	elif arg is NPC and itemHold.get_child_count() > 0:
+		var npc := arg as NPC
+
+		if npc.wants == (itemHold.get_child(0) as Item).itemName:
+			emit_signal("updateHint", "Gift", false)
 
 func tryHighlight():
 	var overlaps := itemDetector.get_overlapping_bodies()
@@ -94,6 +99,7 @@ func highlightItem(item: Item):
 	if highlightedItem:
 		unhighlightItem(highlightedItem)
 
+	emit_signal("updateHint", "Hold", true)
 	mesh.set_material_override(preload("res://object/palette-highlight.material"))
 
 	highlightedItem = item
@@ -106,6 +112,23 @@ func unhighlightItem(item: Item):
 	if not mesh:
 		return
 
+	emit_signal("updateHint", "Hold", false)
 	mesh.set_material_override(null)
 
 	highlightedItem = null
+
+func dropHeldItem(strength: float = 0) -> Item:
+	emit_signal("updateHint", "Throw", false)
+	emit_signal("updateHint", "Use", false)
+	emit_signal("updateHint", "Gift", false)
+	return .dropHeldItem(strength)
+
+func takeItem(item: Item) -> bool:
+	var ret = .takeItem(item)
+
+	emit_signal("updateHint", "Throw", true)
+
+	if ret and item.is_in_group("usable"):
+		emit_signal("updateHint", "Use", true)
+
+	return ret

@@ -10,6 +10,9 @@ var viewport: Viewport
 onready var scoreLabel: Label = $"UI/Status/Score/Label"
 onready var timerLabel: Label = $"UI/Status/Timer/Label"
 
+onready var hintThrowLabel: Control = $"UI/Hints/Throw/Label"
+onready var hintMove: Control = $"UI/Hints/Move"
+
 var runStart: int
 
 func _ready():
@@ -64,6 +67,12 @@ func spawnPlayer():
 	playerCharacter.add_to_group("player")
 
 	playerCharacter.connect("scoreChanged", self, "updateScore")
+	playerCharacter.connect("updateHint", self, "updateHint")
+
+	var moveHintTimer = Timer.new()
+	moveHintTimer.connect("timeout", self, "hideMoveHint")
+	moveHintTimer.start(60)
+	add_child(moveHintTimer)
 
 func spawnNPCs():
 	var paths = currentScene.get_node("Paths")
@@ -94,5 +103,22 @@ func handle_resize():
 	viewportResized = true
 	viewport.size = viewport.size / 2
 
-func updateScore(score):
+func updateScore(score: int):
 	scoreLabel.text = str(score)
+
+func updateHint(name: String, show: bool):
+	# Special case
+	if name == "Gift":
+		hintThrowLabel.text = "GIFT" if show else "THROW (HOLD)"
+		return
+
+	var hint = get_node_or_null("UI/Hints/" + name)
+	print(hint, name, show)
+
+	if not hint:
+		return
+
+	hint.visible = show
+
+func hideMoveHint():
+	hintMove.visible = false
