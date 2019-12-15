@@ -1,5 +1,7 @@
 extends Spatial
 
+var rng: RandomNumberGenerator
+
 var currentScene: Spatial
 onready var cameraLook: Position3D = $"CameraLook"
 var viewportResized = false
@@ -8,21 +10,28 @@ var viewport: Viewport
 func _ready():
 	$"quit/ConfirmationDialog".connect("confirmed", self, "quit")
 
-func _enter_tree():
 	viewport = $"/root"
 	viewport.connect("size_changed", self, "handle_resize")
 	handle_resize()
 
+	$"/root".connect("ready", self, "initGlobal")
+
+func initGlobal():
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
+
 	# Create a global instance of ItemList
 	var itemList = (preload("res://object/item/ItemList.tscn") as PackedScene).instance() as Spatial
+	itemList.name = "ItemList"
 	itemList.pause_mode = Node.PAUSE_MODE_STOP
 	itemList.visible = false
-	$"/root".call_deferred("add_child", itemList)
+	$"/root".add_child(itemList)
 
 	currentScene = (preload("res://map/city.tscn") as PackedScene).instance()
-	call_deferred("add_child", currentScene)
+	add_child(currentScene)
 
-	call_deferred("spawnPlayer")
+	spawnNPCs()
+	spawnPlayer()
 
 func spawnPlayer():
 	var player = (preload("res://object/entity/Player.tscn") as PackedScene).instance() as Node
@@ -36,6 +45,17 @@ func spawnPlayer():
 	cameraRemote.remote_path = cameraLook.get_path()
 	cameraRemote.update_rotation = false
 	player.get_node("Character").add_child(cameraRemote)
+
+func spawnNPCs():
+	var paths = currentScene.get_node("Paths")
+
+	for i in range(30):
+		var path: Curve3D = (paths.get_child(rng.randi_range(0, paths.get_child_count() - 1)) as Path).curve
+		var pos := path.interpolate(rng.randi_range(0, path.get_point_count() - 1), rng.randf())
+
+		var npc = (preload("res://object/entity/NPC.tscn") as PackedScene).instance()
+		add_child(npc)
+		npc.global_transform.origin = pos
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_exit"):

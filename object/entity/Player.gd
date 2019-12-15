@@ -74,7 +74,6 @@ func handleItemDetected(arg: RigidBody):
 	highlightItem(arg)
 
 func handleItemExit(arg: RigidBody):
-	print(arg, " ", isValidItem(arg))
 	if not isValidItem(arg):
 		return
 
@@ -88,7 +87,6 @@ func tryHighlight():
 		handleItemDetected(overlaps[0])
 
 func highlightItem(item: Item):
-	print("highlight ", item)
 	if not isValidItem(item):
 		return
 
@@ -104,7 +102,6 @@ func highlightItem(item: Item):
 	highlightedItem = item
 
 func unhighlightItem(item: Item):
-	print("unhighlight ", item)
 	if not isValidItem(item):
 		return
 
