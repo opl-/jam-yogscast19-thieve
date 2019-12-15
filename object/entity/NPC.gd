@@ -16,15 +16,18 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 
-	if rng.randf() < 0.5:
-		generateNewWant()
-	else:
-		happyTimer.start(rng.randf_range(60, 180))
+	maybeGenerateNewWant()
 
 	#warning-ignore:return_value_discarded
 	npcItemDetector.connect("body_entered", self, "handleItemEnter")
 	#warning-ignore:return_value_discarded
-	happyTimer.connect("timeout", self, "generateNewWant")
+	happyTimer.connect("timeout", self, "maybeGenerateNewWant")
+
+func maybeGenerateNewWant():
+	if rng.randf() < 0.5:
+		generateNewWant()
+	else:
+		happyTimer.start(rng.randf_range(60, 180))
 
 func generateNewWant():
 	if wants != "":

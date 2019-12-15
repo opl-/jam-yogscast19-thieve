@@ -24,7 +24,6 @@ func _physics_process(delta):
 			mesh.look_at(mesh.global_transform.origin + lookAt.normalized(), Vector3(0, 1, 0))
 
 func dropHeldItem(strength: float = 0) -> Item:
-	print("dropping item")
 	var dropTo := get_node_or_null("../..")
 
 	if itemHold.get_child_count() == 0 or not dropTo:
@@ -47,7 +46,6 @@ func dropHeldItem(strength: float = 0) -> Item:
 	return heldItem
 
 func takeItem(item: Item) -> bool:
-	print("takeItem parent ", item.get_parent().name)
 	if not item or Util.isHeld(item):
 		return false
 
