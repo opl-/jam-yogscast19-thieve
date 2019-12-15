@@ -126,6 +126,7 @@ _data = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53466, 0.359449, -1.74771 )
 
 [node name="terrain" type="GridMap" parent="."]
+editor/display_folded = true
 mesh_library = ExtResource( 1 )
 cell_size = Vector3( 1, 1, 1 )
 collision_mask = 0
@@ -787,6 +788,7 @@ transform = Transform( -0.555191, 0, 0.831723, 0, 1, 0, -0.831723, 0, -0.555191,
 transform = Transform( 0.714345, 0, 0.699793, 0, 1, 0, -0.699793, 0, 0.714345, 31.8899, 0.349943, -12.9897 )
 
 [node name="Paths" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Path" type="Path" parent="Paths"]
 curve = SubResource( 2 )
@@ -855,6 +857,31 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.491426, 0.553252, -6.47599 )
 
 [node name="RandomSpawner6" parent="RandomSpawners" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549379, 0.553252, -7.01975 )
+
+[node name="RandomSpawner50" parent="RandomSpawners" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07408, 0.553252, -3.71715 )
+
+[node name="RandomSpawner52" parent="RandomSpawners" instance=ExtResource( 20 )]
+transform = Transform( 0.252983, 0, 0.967471, 0, 1, 0, -0.967471, 0, 0.252983, -3.50573, 0.553252, -26.6889 )
+
+[node name="RandomSpawner54" parent="RandomSpawners" instance=ExtResource( 20 )]
+transform = Transform( 0.993379, 0, -0.114887, 0, 1, 0, 0.114887, 0, 0.993379, 35.5459, 0.553252, -34.9331 )
+
+[node name="RandomSpawner51" parent="RandomSpawners" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.414531, 0.553252, -3.54745 )
+chance = 0.8
+
+[node name="RandomSpawner53" parent="RandomSpawners" instance=ExtResource( 20 )]
+transform = Transform( 0.252983, 0, 0.967471, 0, 1, 0, -0.967471, 0, 0.252983, -1.77241, 0.553252, -27.4963 )
+chance = 0.8
+
+[node name="RandomSpawner55" parent="RandomSpawners" instance=ExtResource( 20 )]
+transform = Transform( 0.993379, 0, -0.114887, 0, 1, 0, 0.114887, 0, 0.993379, 36.1816, 0.553252, -34.6888 )
+chance = 0.8
+
+[node name="RandomSpawner56" parent="RandomSpawners" instance=ExtResource( 20 )]
+transform = Transform( 0.181071, 0, -0.98347, 0, 1, 0, 0.98347, 0, 0.181071, 38.0046, 0.553252, -23.1407 )
+chance = 0.8
 
 [node name="RandomSpawner7" parent="RandomSpawners" instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5976, 0.553252, -12.6065 )
