@@ -13,11 +13,16 @@ onready var timerLabel: Label = $"UI/Status/Timer/Label"
 onready var hintThrowLabel: Control = $"UI/Hints/Throw/Label"
 onready var hintMove: Control = $"UI/Hints/Move"
 
+var runDuration: int = 0
 var runStart: int
 
 func _ready():
 	#warning-ignore:return_value_discarded
 	$"quit/ConfirmationDialog".connect("confirmed", self, "quit")
+	#warning-ignore:return_value_discarded
+	$"quit/ConfirmationDialog".connect("about_to_show", self, "pause")
+	#warning-ignore:return_value_discarded
+	$"quit/ConfirmationDialog".connect("hide", self, "unpause")
 
 	OS.set_window_size(OS.get_screen_size())
 
@@ -30,7 +35,7 @@ func _ready():
 	$"/root".connect("ready", self, "initGlobal")
 
 func _process(delta):
-	var time = OS.get_system_time_msecs() - runStart
+	var time = runDuration + (0 if runStart < 0 else OS.get_system_time_msecs() - runStart)
 
 	timerLabel.text = str(floor(time / 60000)).pad_zeros(2) + ":" + str(floor((time % 60000) / 1000)).pad_zeros(2) + "." + str(time % 1000).pad_zeros(3)
 
@@ -96,6 +101,14 @@ func _input(event):
 func quit():
 	get_tree().quit()
 
+func pause():
+	handlePause(true)
+	get_tree().paused = true
+
+func unpause():
+	handlePause(false)
+	get_tree().paused = false
+
 func handle_resize():
 	# Prevent enless signal loops
 	if viewportResized:
@@ -124,3 +137,10 @@ func updateHint(name: String, show: bool):
 
 func hideMoveHint():
 	hintMove.visible = false
+
+func handlePause(paused: bool):
+	if paused:
+		runDuration += OS.get_system_time_msecs() - runStart
+		runStart = -1
+	else:
+		runStart = OS.get_system_time_msecs()
