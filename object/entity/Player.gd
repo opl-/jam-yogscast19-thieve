@@ -12,16 +12,7 @@ func _ready():
 	itemDetector.connect("body_exited", self, "handleItemExit")
 
 func get_input_dir():
-	var dir = Vector3(0, 0, 0)
-
-	if Input.is_action_pressed("game_left"):
-		dir += Vector3(-1, 0, 0)
-	if Input.is_action_pressed("game_right"):
-		dir += Vector3(1, 0, 0)
-	if Input.is_action_pressed("game_down"):
-		dir += Vector3(0, 0, 1)
-	if Input.is_action_pressed("game_up"):
-		dir += Vector3(0, 0, -1)
+	var dir = Vector3(Input.get_action_strength("game_right") - Input.get_action_strength("game_left"), 0, Input.get_action_strength("game_down") - Input.get_action_strength("game_up"))
 
 	dir = dir.normalized()
 	if dir.length() > 0:
