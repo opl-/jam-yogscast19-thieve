@@ -3,32 +3,32 @@
 [ext_resource path="res://PlayScene.gd" type="Script" id=1]
 [ext_resource path="res://mesh/texture/controls.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=1]
 flags = 34
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=2]
 flags = 34
 atlas = ExtResource( 2 )
 region = Rect2( 8, 0, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=3]
 flags = 34
 atlas = ExtResource( 2 )
 region = Rect2( 0, 24, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=4]
 flags = 34
 atlas = ExtResource( 2 )
 region = Rect2( 8, 24, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=5]
 flags = 34
 atlas = ExtResource( 2 )
 region = Rect2( 0, 8, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=6]
 flags = 34
 atlas = ExtResource( 2 )
 region = Rect2( 8, 8, 8, 8 )
@@ -98,7 +98,7 @@ margin_bottom = 476.0
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="UI/Hints/Hold"]
@@ -106,7 +106,7 @@ margin_left = 20.0
 margin_right = 36.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 4 )
+texture = SubResource( 2 )
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="UI/Hints/Hold"]
@@ -128,7 +128,7 @@ margin_bottom = 476.0
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="UI/Hints/Throw"]
@@ -136,7 +136,7 @@ margin_left = 20.0
 margin_right = 36.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 4 )
+texture = SubResource( 2 )
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="UI/Hints/Throw"]
@@ -158,7 +158,7 @@ margin_bottom = 496.0
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 5 )
+texture = SubResource( 3 )
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="UI/Hints/Use"]
@@ -166,7 +166,7 @@ margin_left = 20.0
 margin_right = 36.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 6 )
+texture = SubResource( 4 )
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="UI/Hints/Use"]
@@ -187,7 +187,7 @@ margin_bottom = 496.0
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 1 )
+texture = SubResource( 5 )
 stretch_mode = 6
 
 [node name="TextureRect2" type="TextureRect" parent="UI/Hints/Move"]
@@ -195,7 +195,7 @@ margin_left = 20.0
 margin_right = 36.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-texture = SubResource( 2 )
+texture = SubResource( 6 )
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="UI/Hints/Move"]

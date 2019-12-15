@@ -19,6 +19,8 @@ func _ready():
 	#warning-ignore:return_value_discarded
 	$"quit/ConfirmationDialog".connect("confirmed", self, "quit")
 
+	OS.set_window_size(OS.get_screen_size())
+
 	viewport = $"/root"
 	#warning-ignore:return_value_discarded
 	viewport.connect("size_changed", self, "handle_resize")

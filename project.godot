@@ -44,9 +44,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="yogscast-jam-2019"
+config/name="THIEVE by opl"
 run/main_scene="res://PlayScene.tscn"
+boot_splash/image="res://mesh/texture/title-pixel.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.0588235, 0.219608, 0.0588235, 1 )
 config/icon="res://icon.png"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 
 [display]
 
