@@ -14,9 +14,8 @@ func _ready():
 func get_input_dir():
 	var dir = Vector3(Input.get_action_strength("game_right") - Input.get_action_strength("game_left"), 0, Input.get_action_strength("game_down") - Input.get_action_strength("game_up"))
 
-	dir = dir.normalized()
-	if dir.length() > 0:
-		dir += Vector3(0, 0.1, 0)
+	if dir.length() > 1:
+		dir = dir.normalized()
 
 	return dir
 
