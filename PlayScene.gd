@@ -53,9 +53,10 @@ func spawnNPCs():
 	var paths = currentScene.get_node("Paths")
 
 	#warning-ignore:unused_variable
-	for i in range(30):
-		var path: Curve3D = (paths.get_child(rng.randi_range(0, paths.get_child_count() - 1)) as Path).curve
-		var pos := path.interpolate(rng.randi_range(0, path.get_point_count() - 1), rng.randf())
+	for i in range(3):
+		#var path: Curve3D = (paths.get_child(rng.randi_range(0, paths.get_child_count() - 1)) as Path).curve
+		#var pos := path.interpolate(rng.randi_range(0, path.get_point_count() - 1), rng.randf())
+		var pos = (currentScene.get_node("PlayerSpawn") as Position3D).global_transform.origin
 
 		var npc = (preload("res://object/entity/NPC.tscn") as PackedScene).instance()
 		add_child(npc)

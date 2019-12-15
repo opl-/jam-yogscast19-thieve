@@ -24,13 +24,17 @@ func _physics_process(delta):
 			mesh.look_at(mesh.global_transform.origin + lookAt.normalized(), Vector3(0, 1, 0))
 
 func dropHeldItem(strength: float = 0) -> Item:
-	if itemHold.get_child_count() == 0:
+	print("dropping item")
+	var dropTo := get_node_or_null("../..")
+
+	if itemHold.get_child_count() == 0 or not dropTo:
 		return null
 
 	var heldItem = itemHold.get_child(0) as Item
 
 	Util.reparent(heldItem, $"../..")
-	heldItem.collision_mask |= 1
+	heldItem.collision_layer |= 4
+	heldItem.mode = RigidBody.MODE_RIGID
 
 	var dir = linear_velocity.normalized()
 
@@ -43,13 +47,13 @@ func dropHeldItem(strength: float = 0) -> Item:
 	return heldItem
 
 func takeItem(item: Item) -> bool:
-	assert(item)
-
-	if item.get_parent().name == "Hold":
+	print("takeItem parent ", item.get_parent().name)
+	if not item or Util.isHeld(item):
 		return false
 
 	item.translation = Vector3(0, 0, 0)
-	item.collision_mask &= ~1
+	item.collision_layer &= ~4
+	item.mode = RigidBody.MODE_STATIC
 	Util.reparent(item, itemHold)
 
 	return true

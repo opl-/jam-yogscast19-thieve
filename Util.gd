@@ -10,3 +10,6 @@ static func reparent(thing: Node, parent: Node):
 
 static func isValidItem(node: Node):
 	return node and node is Item and node.is_in_group("item")
+
+static func isHeld(node: Spatial) -> bool:
+	return node and node.get_parent().name == "Hold"

@@ -42,19 +42,19 @@ func _physics_process(delta):
 		throwStrengthIndicator.scale = Vector3(1, 1, throwStrength)
 		throwStrengthIndicator.visible = throwStrength > 0
 	else:
-		if Input.is_action_just_pressed("game_hold") and highlightedItem:
+		if Input.is_action_just_pressed("game_hold") and highlightedItem and not Util.isHeld(highlightedItem):
 			takeItem(highlightedItem)
 			unhighlightItem(highlightedItem)
 
 func handleItemDetected(arg: RigidBody):
-	if Util.isValidItem(arg) and itemHold.get_child_count() == 0:
+	if Util.isValidItem(arg) and itemHold.get_child_count() == 0 and not Util.isHeld(highlightedItem):
 		highlightItem(arg)
 	elif arg is NPC and itemHold.get_child_count() > 0:
 		var npc := arg as NPC
 
 		if npc.wants == (itemHold.get_child(0) as Item).itemName:
-			var droppedItem = dropHeldItem()
-			npc.makeHappy(droppedItem)
+			# TODO: show hint
+			pass
 
 func handleItemExit(arg: RigidBody):
 	if Util.isValidItem(arg):

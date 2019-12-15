@@ -51,9 +51,13 @@ func generateNewWant():
 
 	wants = itemInstance.itemName
 
-func makeHappy(item: Item):
+func makeHappy(item: Item) -> bool:
+	if not Util.isValidItem(item) or Util.isHeld(item):
+		return false
+
 	removeWant()
 
+	#warning-ignore:return_value_discarded
 	takeItem(item)
 
 	heartParticles.emitting = true
@@ -62,9 +66,14 @@ func makeHappy(item: Item):
 
 	happyTimer.start(rng.randf_range(10, 180))
 
+	return true
+
 func removeWant():
 	wants = ""
-	$"WantedItemIndicator".free()
+
+	var wantIndicator = get_node_or_null("WantedItemIndicator")
+	if wantIndicator:
+		wantIndicator.get_parent().remove_child(wantIndicator)
 
 func _physics_process(delta):
 	if raycast.is_colliding():
@@ -82,7 +91,10 @@ func _physics_process(delta):
 	apply_central_impulse(delta * 80 * moveDir)
 
 func handleItemEnter(arg: Item):
-	if Util.isValidItem(arg) and arg.itemName == wants and arg.get_parent().name != "Hold":
-		heartParticles.amount = 2
-		heartParticles.emitting = true
-		heartParticles.one_shot = true
+	if Util.isValidItem(arg) and arg.itemName == wants:
+		if not Util.isHeld(arg):
+			call_deferred("makeHappy", arg)
+		else:
+			heartParticles.emitting = true
+			heartParticles.amount = 2
+			heartParticles.one_shot = true
