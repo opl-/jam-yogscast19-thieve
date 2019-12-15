@@ -4,7 +4,7 @@ class_name Player
 onready var itemDetector: Area = $"Rig/ItemDetector"
 onready var throwStrengthIndicator: Position3D = $"Rig/ThrowIndicator"
 
-var throwStrength: float = 0
+var throwStrength: float = -1
 var highlightedItem: Item
 
 func _ready():
@@ -27,15 +27,15 @@ func _physics_process(delta):
 	._physics_process(delta)
 
 	if itemHold.get_child_count() > 0:
-		if throwStrength > 0 and Input.is_action_pressed("game_hold"):
+		if throwStrength > -1 and Input.is_action_pressed("game_hold"):
 			throwStrength = min(1, throwStrength + delta)
 		elif Input.is_action_just_pressed("game_hold"):
-			throwStrength = 0.1
-		elif throwStrength > 0:
+			throwStrength = -0.2
+		elif throwStrength > -1:
 			#warning-ignore:return_value_discarded
-			dropHeldItem(throwStrength)
+			dropHeldItem(max(0, throwStrength))
 
-			throwStrength = 0
+			throwStrength = -1
 
 			call_deferred("tryHighlight")
 
