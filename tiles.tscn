@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://mesh/wall-gray/straight.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://object/palette.material" type="Material" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://mesh/grass/grass.obj" type="ArrayMesh" id=19]
 [ext_resource path="res://mesh/foliage/tree1.obj" type="ArrayMesh" id=20]
 [ext_resource path="res://mesh/foliage/tree2.obj" type="ArrayMesh" id=21]
+[ext_resource path="res://mesh/foliage/bush.obj" type="ArrayMesh" id=22]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.05, 0.5, 0.5 )
@@ -65,16 +66,16 @@ extents = Vector3( 0.205121, 0.140089, 0.197602 )
 extents = Vector3( 0.186779, 0.140089, 0.244909 )
 
 [sub_resource type="BoxShape" id=17]
-extents = Vector3( 0.267278, 0.285772, 0.247313 )
+extents = Vector3( 0.316449, 0.143884, 0.19028 )
 
 [sub_resource type="BoxShape" id=18]
-extents = Vector3( 0.181784, 0.245726, 0.245104 )
+extents = Vector3( 0.250491, 0.195945, 0.141678 )
 
 [sub_resource type="BoxShape" id=19]
-extents = Vector3( 0.317338, 0.141315, 0.18916 )
+extents = Vector3( 0.117038, 0.146886, 0.103413 )
 
 [sub_resource type="BoxShape" id=20]
-extents = Vector3( 0.156372, 0.110633, 0.109904 )
+extents = Vector3( 0.120616, 0.126597, 0.168797 )
 
 [node name="tiles" type="Spatial"]
 
@@ -135,7 +136,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, -0.4 )
 shape = SubResource( 3 )
 
 [node name="counter" type="MeshInstance" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 3.5 )
 mesh = ExtResource( 6 )
 material/0 = ExtResource( 2 )
@@ -362,4 +362,27 @@ shape = SubResource( 19 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="tree2/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301076, 0.832689, -0.393573 )
+shape = SubResource( 20 )
+
+[node name="bush" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 3.5 )
+mesh = ExtResource( 22 )
+material/0 = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="bush"]
+
+[node name="CollisionShape" type="CollisionShape" parent="bush/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140584, -0.361519, -0.0360565 )
+shape = SubResource( 17 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="bush/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142765, -0.177217, -0.23073 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="bush/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169611, -0.188313, 0.151103 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="bush/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.421967, -0.210112, 0.0449419 )
 shape = SubResource( 20 )
