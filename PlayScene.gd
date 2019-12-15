@@ -7,7 +7,10 @@ onready var cameraLook: Position3D = $"CameraLook"
 var viewportResized = false
 var viewport: Viewport
 
-onready var scoreLabel: Label = $"UI/Score/Label"
+onready var scoreLabel: Label = $"UI/Status/Score/Label"
+onready var timerLabel: Label = $"UI/Status/Timer/Label"
+
+var runStart: int
 
 func _ready():
 	#warning-ignore:return_value_discarded
@@ -21,7 +24,13 @@ func _ready():
 	#warning-ignore:return_value_discarded
 	$"/root".connect("ready", self, "initGlobal")
 
+func _process(delta):
+	var time = OS.get_system_time_msecs() - runStart
+
+	timerLabel.text = str(floor(time / 60000)).pad_zeros(2) + ":" + str(floor((time % 60000) / 1000)).pad_zeros(2) + "." + str(time % 1000).pad_zeros(3)
+
 func initGlobal():
+	runStart = OS.get_system_time_msecs()
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 

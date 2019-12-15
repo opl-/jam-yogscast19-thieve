@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://PlayScene.gd" type="Script" id=1]
 [ext_resource path="res://mesh/texture/controls.png" type="Texture" id=2]
@@ -34,6 +34,11 @@ atlas = ExtResource( 2 )
 region = Rect2( 8, 16, 8, 8 )
 
 [sub_resource type="AtlasTexture" id=7]
+flags = 34
+atlas = ExtResource( 2 )
+region = Rect2( 16, 8, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=8]
 flags = 34
 atlas = ExtResource( 2 )
 region = Rect2( 24, 8, 8, 8 )
@@ -161,26 +166,53 @@ custom_colors/font_color = Color( 0.607843, 0.737255, 0.0588235, 1 )
 text = "QUIT"
 valign = 1
 
-[node name="Score" type="HBoxContainer" parent="UI"]
+[node name="Status" type="VBoxContainer" parent="UI"]
 anchor_bottom = 0.5
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 208.0
-margin_bottom = -482.0
+rect_min_size = Vector2( 200, 0 )
+
+[node name="Timer" type="HBoxContainer" parent="UI/Status"]
+editor/display_folded = true
+margin_right = 200.0
+margin_bottom = 16.0
 rect_min_size = Vector2( 200, 16 )
 
-[node name="TextureRect" type="TextureRect" parent="UI/Score"]
+[node name="TextureRect" type="TextureRect" parent="UI/Status/Timer"]
 margin_right = 16.0
-margin_bottom = 34.0
+margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 texture = SubResource( 7 )
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="UI/Score"]
+[node name="Label" type="Label" parent="UI/Status/Timer"]
 margin_left = 20.0
-margin_top = 10.0
+margin_top = 1.0
+margin_right = 56.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.607843, 0.737255, 0.0588235, 1 )
+text = "00:00"
+valign = 1
+
+[node name="Score" type="HBoxContainer" parent="UI/Status"]
+editor/display_folded = true
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 200, 16 )
+
+[node name="TextureRect" type="TextureRect" parent="UI/Status/Score"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+texture = SubResource( 8 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="UI/Status/Score"]
+margin_left = 20.0
+margin_top = 1.0
 margin_right = 28.0
-margin_bottom = 24.0
+margin_bottom = 15.0
 custom_colors/font_color = Color( 0.607843, 0.737255, 0.0588235, 1 )
 text = "0"
 valign = 1
