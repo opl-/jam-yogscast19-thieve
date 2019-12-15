@@ -58,6 +58,10 @@ func _physics_process(delta):
 			takeItem(highlightedItem)
 			unhighlightItem(highlightedItem)
 
+func _input(event):
+	if Input.is_action_just_pressed("game_use") and itemHold.get_child_count() > 0:
+		itemHold.get_child(0).call_deferred("useItem", self)
+
 func handleItemDetected(arg: RigidBody):
 	if Util.isValidItem(arg) and itemHold.get_child_count() == 0 and not Util.isHeld(highlightedItem):
 		highlightItem(arg)

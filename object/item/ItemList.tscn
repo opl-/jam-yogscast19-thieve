@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://object/item/Gramophone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://object/item/Pizza.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://object/item/SoccerBall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://object/item/Plane.tscn" type="PackedScene" id=10]
 [ext_resource path="res://object/item/Painting.tscn" type="PackedScene" id=11]
+[ext_resource path="res://object/item/Horn.tscn" type="PackedScene" id=12]
 
 [node name="ItemList" type="Spatial"]
 
@@ -30,11 +31,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
 
 [node name="TopHat" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
-wearable = true
 
 [node name="Snapback" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
-wearable = true
 
 [node name="Bottle" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0 )
@@ -47,3 +46,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
 
 [node name="Painting" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+
+[node name="Horn" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )

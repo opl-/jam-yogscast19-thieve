@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/horn.obj-4623506c8fba27528a237de58fcdea3e.mesh"
+
+[deps]
+
+files=[ "res://.import/horn.obj-4623506c8fba27528a237de58fcdea3e.mesh" ]
+
+source_file="res://mesh/item/horn.obj"
+dest_files=[ "res://.import/horn.obj-4623506c8fba27528a237de58fcdea3e.mesh", "res://.import/horn.obj-4623506c8fba27528a237de58fcdea3e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

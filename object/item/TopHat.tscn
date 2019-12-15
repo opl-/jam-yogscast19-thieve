@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://object/item/Item.gd" type="Script" id=1]
+[ext_resource path="res://object/item/Wearable.gd" type="Script" id=1]
 [ext_resource path="res://mesh/item/tophat.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://object/palette.material" type="Material" id=3]
 

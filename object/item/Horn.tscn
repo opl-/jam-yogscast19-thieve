@@ -1,28 +1,28 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://object/item/Wearable.gd" type="Script" id=1]
-[ext_resource path="res://mesh/item/snapback.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://mesh/item/horn.obj" type="ArrayMesh" id=2]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.0772127, 0.0341389, 0.0791069 )
+extents = Vector3( 0.0801597, 0.027965, 0.0215525 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.0772123, 0.006, 0.0457982 )
+extents = Vector3( 0.0113399, 0.0974148, 0.0070887 )
 
-[node name="Snapback" type="RigidBody"]
+[node name="Horn" type="RigidBody"]
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 1 )
-itemName = "Snapback"
+itemName = "Horn"
 
 [node name="Mesh" type="MeshInstance" parent="."]
 mesh = ExtResource( 2 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0212366, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0175678, -0.0359481 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00631887, -0.112034 )
+transform = Transform( 1, 0, 0, 0, 0.747871, 0.663844, 0, -0.663844, 0.747871, 0, 0.0734384, -0.0967123 )
 shape = SubResource( 2 )
