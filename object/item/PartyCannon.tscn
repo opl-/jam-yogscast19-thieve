@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://object/item/PartyCannon.gd" type="Script" id=1]
+[ext_resource path="res://mesh/item/party-cannon.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://object/heart-particle.material" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.124907, 0.0278278, 0.0285317 )
+
+[sub_resource type="QuadMesh" id=2]
+material = ExtResource( 3 )
+size = Vector2( 0.1, 0.1 )
+
+[node name="PartyCannon" type="RigidBody"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 1 )
+itemName = "PartyCannon"
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00467332, 0, -0.000279035 )
+shape = SubResource( 1 )
+
+[node name="HeartParticles" type="CPUParticles" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.121516, 0, 0 )
+emitting = false
+amount = 20
+one_shot = true
+randomness = 1.0
+local_coords = false
+mesh = SubResource( 2 )
+spread = 20.0
+initial_velocity = 4.0
+initial_velocity_random = 0.39
+damping = 0.2
+scale_amount = 1.5
+scale_amount_random = 0.5

@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/party-cannon.obj-d894ecb7b7a7c8731149bf3dbd469958.mesh"
+
+[deps]
+
+files=[ "res://.import/party-cannon.obj-d894ecb7b7a7c8731149bf3dbd469958.mesh" ]
+
+source_file="res://mesh/item/party-cannon.obj"
+dest_files=[ "res://.import/party-cannon.obj-d894ecb7b7a7c8731149bf3dbd469958.mesh", "res://.import/party-cannon.obj-d894ecb7b7a7c8731149bf3dbd469958.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
