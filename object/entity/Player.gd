@@ -1,11 +1,23 @@
 extends Character
 class_name Player
 
+signal scoreChanged
+
 onready var itemDetector: Area = $"Rig/ItemDetector"
 onready var throwStrengthIndicator: Position3D = $"Rig/ThrowIndicator"
 
 var throwStrength: float = -1
 var highlightedItem: Item
+
+var score: int = 0
+
+func scoreSet(val: int = -1):
+	if val == -1:
+		val = score + 1
+
+	score = val
+
+	emit_signal("scoreChanged", val)
 
 func _ready():
 	#warning-ignore:return_value_discarded

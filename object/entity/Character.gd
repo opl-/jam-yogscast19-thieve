@@ -54,4 +54,6 @@ func takeItem(item: Item) -> bool:
 	item.mode = RigidBody.MODE_STATIC
 	Util.reparent(item, itemHold)
 
+	item.lastHolder = self
+
 	return true

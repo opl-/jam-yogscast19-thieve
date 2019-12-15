@@ -7,6 +7,8 @@ onready var cameraLook: Position3D = $"CameraLook"
 var viewportResized = false
 var viewport: Viewport
 
+onready var scoreLabel: Label = $"UI/Score/Label"
+
 func _ready():
 	#warning-ignore:return_value_discarded
 	$"quit/ConfirmationDialog".connect("confirmed", self, "quit")
@@ -39,6 +41,7 @@ func initGlobal():
 func spawnPlayer():
 	var player = (preload("res://object/entity/Player.tscn") as PackedScene).instance() as Node
 	add_child(player)
+	var playerCharacter = player.get_node("Character")
 
 	var playerSpawn = currentScene.get_node("PlayerSpawn") as Position3D
 	player.translate(playerSpawn.global_transform.origin)
@@ -47,7 +50,11 @@ func spawnPlayer():
 	cameraRemote.name = "CameraRemote"
 	cameraRemote.remote_path = cameraLook.get_path()
 	cameraRemote.update_rotation = false
-	player.get_node("Character").add_child(cameraRemote)
+	playerCharacter.add_child(cameraRemote)
+
+	playerCharacter.add_to_group("player")
+
+	playerCharacter.connect("scoreChanged", self, "updateScore")
 
 func spawnNPCs():
 	var paths = currentScene.get_node("Paths")
@@ -77,3 +84,6 @@ func handle_resize():
 
 	viewportResized = true
 	viewport.size = viewport.size / 2
+
+func updateScore(score):
+	scoreLabel.text = str(score)

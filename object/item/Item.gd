@@ -6,5 +6,7 @@ export(String) var itemName
 #warning-ignore:unused_class_variable
 export(bool) var wearable = false
 
+var lastHolder: RigidBody = null
+
 func _ready():
 	add_to_group("item")
