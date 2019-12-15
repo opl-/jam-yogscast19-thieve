@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/store-shelf.obj-8bd1ffd08df0eb1ce3dd3e305366f550.mesh"
+
+[deps]
+
+files=[ "res://.import/store-shelf.obj-8bd1ffd08df0eb1ce3dd3e305366f550.mesh" ]
+
+source_file="res://mesh/deco/store-shelf.obj"
+dest_files=[ "res://.import/store-shelf.obj-8bd1ffd08df0eb1ce3dd3e305366f550.mesh", "res://.import/store-shelf.obj-8bd1ffd08df0eb1ce3dd3e305366f550.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
